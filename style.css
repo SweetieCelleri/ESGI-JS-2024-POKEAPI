@@ -1,0 +1,17 @@
+.body {
+    background-color: red;
+}
+
+.header {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.navbar {
+    background-color: green;
+}
+
+.box {
+    background-color: black;
+}
