@@ -15,24 +15,24 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-    <container>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#">Pokédex</a>
-            <form class="form-inline">
-                <div class="d-flex" style="margin-right: 50px;">
-                  <button class="btn btn-outline-success" type="submit" id="recherche">
-                    <i class="fas fa-search"></i>
-                  </button>
-                  <input class="form-control" type="text" placeholder="Rechercher">
-                </div>
-              </form>
-        </nav>
-        <table id="pokemon"></table>
-    </container>
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="navbar-brand" href="#">Pokédex</a>
+                    <form class="form-inline">
+                        <div class="d-flex" style="margin-right: 50px;">
+                            <input class="form-control" type="text" placeholder="Rechercher" id="pokemon-name">
+                        </div>
+                    </form>
+                </nav>
+                <div id="cardPoke"></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
     </div>
 
-    <div class="col-md-3"></div>
-    </div>
+    <button onclick="scrollToTop()" class="scroll-to-top" id="btnScrollToTop"><img src="images/A.png"></button>
+
     <script src="index.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
