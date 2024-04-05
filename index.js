@@ -1,5 +1,6 @@
 const pokemonTab = document.getElementById("pokemon");
 
+//Permet de récupérer les évoltutions et sous évolutions de chaque pokémon
 async function getPokemonEvolutionChain(pokemonId) {
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`);
@@ -11,7 +12,7 @@ async function getPokemonEvolutionChain(pokemonId) {
         
         const chain = [];
         let current = evolutionData.chain;
-        
+        //permet de masquer le pokémon actuelle de sa chaîne d'évolution
         while (current) {
             if (current.species.name !== data.name) {
                 chain.push({
@@ -29,7 +30,7 @@ async function getPokemonEvolutionChain(pokemonId) {
     }
 }
 
-
+//Permet de récupérer les faiblesses de chaque pojémon
 async function getPokemonWeaknesses(pokemonId) {
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
@@ -49,7 +50,7 @@ async function getPokemonWeaknesses(pokemonId) {
         return [];
     }
 }
-
+//permet de récupérer des détails sur les pokémon comme le poid et la taille
 async function getPokemonDetails(pokemonId) {
     try {
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
@@ -66,7 +67,7 @@ async function getPokemonDetails(pokemonId) {
         return null;
     }
 }
-
+//permet d'afficher les card pokémon avec toutes les infos
 async function pokemonlist() {
     try {
         const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
@@ -127,8 +128,8 @@ async function pokemonlist() {
 
             cardPoke.appendChild(card);
         }
-
-                const evolutionImages = document.querySelectorAll(".evolution-image");
+        //emmène vers le pokémon en question lorsqu'on clique sur son image sur la chaîne d'évolution d'un autre pokémon
+        const evolutionImages = document.querySelectorAll(".evolution-image");
         evolutionImages.forEach(image => {
             image.addEventListener("mouseenter", () => {
                 image.style.cursor = "pointer";
@@ -154,11 +155,11 @@ async function pokemonlist() {
         console.error("Erreur lors de la récupération des Pokémon:", error);
     }
 }
-
+//éxécute la fonction
 pokemonlist();
 
 
-
+//permet de rechercher un pokémon en fonction de son nom ou de son id en masquant au fur et à mesure les pokémon qui ne correspondent pas
 function SearchPoke() {
     const pokeFound = document.getElementById("pokemon-name").value.toLowerCase();
     const allPokemon = document.querySelectorAll(".card");
@@ -179,14 +180,8 @@ const inputField = document.getElementById("pokemon-name");
 inputField.addEventListener("input", SearchPoke);
 
 
-
-
-
-
-
-
 window.onscroll = function() {scrollFunction()};
-
+//permet de remonter en haut de la page de manière fluide
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         document.getElementById("btnScrollToTop").style.display = "block";
